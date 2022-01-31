@@ -1,0 +1,78 @@
+<h1> Hello!!!!</h1>
+
+<h3> Notes: </h3>
+<div class="tip" markdown="1">
+# NPM Crash Course
+## Package.json file
+- manifest file with app info
+- lists dependencies- name and version- that app needs to work
+	- specifies if versions should be updated
+- can create npm scripts
+- easily create package.json with `npm init —y`
+	- `npm set init-license “MIT”`
+	- `npm config set init-author-name “jasterix”`
+	- `npm get init-author-name `
+	- `npm config delete init-author-name`
+		- remove defaults
+- lodash
+	- library with javascript utility functions
+	- `npm install loads --save`
+		- --save -> saves to project as a dependency
+			- otherwise it will install but not add to package.json
+			- also creates node_modules folder
+				- don’t wan to push this to version control
+- if cloning a repo from elsewhere,
+	- use `npm install` to add all of the dependencies in the package.json
+	- use dev dependencies for packages you’ll only use during development, but not production
+		- `npm install gulp gulp-sass --save-dev`
+		- gulp -> tasks
+		- node_modules will have all of the dependencies for the package as well
+	- `--production` will only install regular dependencies and not dev dependencies
+- uninstalling dependencies
+	- `npm uninstall gulp-as --save-dev`
+	- aliases
+		- rm, remove, un, uninstall
+		- will also still need the `--save-dev` flag
+- installing specific version with `@`
+	- `npm install lodash@4.7.3 --save`
+- update to latest version
+	- `npm update lodash`
+
+## Semantic version
+- version 8.2.6 -> version major.minor.patch
+	- **8** -> major version
+		- major changes
+		- breaking changes. Application will probably break. Will need to read documentation to update code
+	- **2** -> minor version
+		- New features
+		- Doesn’t break API
+	- **Patch** ->
+		- Bug fixes
+	- `^` -> install latest minor version with npm install
+		- will not install lates major version
+	- `~` -> install the latest patch changes
+	- `*` -> install the absolute latest version
+		- not a good idea because latest version can be breaking and app may not even run
+	- Otherwise, `4.3.2` -> install this exact version
+	- Local modules- just go in the node_modules folder for app
+	-  Global modules
+		- `npm install -g nodemon`
+		- install on your computer, meaning you can run it anywhere
+		- To see where global installs are -> `npm root -g`
+		- `npm install live-server -g`
+			- allows to run whatever directory on localhost and load it up in your browser
+		- remove global module
+			- `npm remove nodemon -g`
+	- List packages
+		- `npm list`
+		- `--depth` -> specify which level of dependencies to display. Top level or sub dependencies
+			- `npm list --depth 0` 
+				- 1 -> gulp
+				- 2 -> all of the modules
+## Scripts
+- start -> command to start your app
+	- `node index.js`
+		- can simply run `npm start`
+	- unless it’s `start` or `test`, will need to use `npm run ...` to run that script
+		- example: `”server”: “live-server”` -> `npm run server`
+    </div>
