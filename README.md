@@ -1,10 +1,10 @@
-# NPM-crash-course
- Notes from Traversy crash course
+# Markdown to HTML Converter
+
 
 ## Background
 This project originally started as a simple app to practice working with NPM.
 
-I took some notes with the Bear app. But the option to convert to HTML was behind a paywall. And so what was a basic nothing app turned into a tool for converting my markdown notes to HTML. 
+I took some notes with the Bear app for macOS. But the option to convert to HTML was behind a paywall. And so what was a basic nothing app turned into a tool for converting my markdown notes to HTML. 
 
 Thanks to this fantastic [blog post](https://www.devextent.com/convert-markdown-to-html-nodejs/) by James Edwards, I was able to do that in a few hours.
 
