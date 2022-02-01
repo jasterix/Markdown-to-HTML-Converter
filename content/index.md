@@ -35,7 +35,3 @@ function() {
 ```html
 <span>this will remain html even after the Markdown is converted to HTML</span>
 ```
-
-[Dev Extent](https://www.devextent.com)
-
-![Dev Extent](https://www.devextent.com/images/devextent.png)
