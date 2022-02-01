@@ -4,7 +4,8 @@ import { markdown } from "./utils/markdown.js"; // provides the "readFile" funct
 (async function convertMarkdownToHtml() {
   console.log("Converting...."); // Markdown source
 
-  const content = await fs.readFile("./content/index.md", "utf8"); // Render to HTML
+  const content = await fs.readFile("./content/npm-notes.md", "utf8");
+  console.log(content); // Render to HTML
 
   const rendered = await markdown.render(content);
   const htmlFile = `<!DOCTYPE html>

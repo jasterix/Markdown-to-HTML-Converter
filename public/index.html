@@ -6,34 +6,168 @@
     <link rel="stylesheet" href="./default.css">
     </head>
     <body>
-    <h1>H1</h1>
-<h2>H2</h2>
-<h3>H3</h3>
-<h4>H4</h4>
-<p><strong>bold text</strong></p>
-<p><em>italicized text</em></p>
-<blockquote>
-<p>blockquote</p>
-</blockquote>
-<ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-</ol>
+    <h1>NPM Crash Course</h1>
+<h2>Package.json file</h2>
 <ul>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
+<li>manifest file with app info</li>
+<li>lists dependencies- name and version- that app needs to work
+<ul>
+<li>specifies if versions should be updated</li>
 </ul>
-<p><code>code</code></p>
-<hr>
-<pre><code class="hljs"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;This is some javascript included in a markdown code block, and it will be converted to valid HTML with code syntax highlighting.&quot;</span>);
-}
-</code></pre>
-<p><kbd>this is a keyboard input html element</kbd></p>
-<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>this will remain html even after the Markdown is converted to HTML<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-</code></pre>
+</li>
+<li>can create npm scripts</li>
+<li>easily create package.json with <code>npm init —y</code>
+<ul>
+<li><code>npm set init-license “MIT”</code></li>
+<li><code>npm config set init-author-name “jasterix”</code></li>
+<li><code>npm get init-author-name </code></li>
+<li><code>npm config delete init-author-name</code>
+<ul>
+<li>remove defaults</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>lodash
+<ul>
+<li>library with javascript utility functions</li>
+<li><code>npm install loads --save</code>
+<ul>
+<li>--save -&gt; saves to project as a dependency
+<ul>
+<li>otherwise it will install but not add to package.json</li>
+<li>also creates node_modules folder
+<ul>
+<li>don’t wan to push this to version control</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>if cloning a repo from elsewhere,
+<ul>
+<li>use <code>npm install</code> to add all of the dependencies in the package.json</li>
+<li>use dev dependencies for packages you’ll only use during development, but not production
+<ul>
+<li><code>npm install gulp gulp-sass --save-dev</code></li>
+<li>gulp -&gt; tasks</li>
+<li>node_modules will have all of the dependencies for the package as well</li>
+</ul>
+</li>
+<li><code>--production</code> will only install regular dependencies and not dev dependencies</li>
+</ul>
+</li>
+<li>uninstalling dependencies
+<ul>
+<li><code>npm uninstall gulp-as --save-dev</code></li>
+<li>aliases
+<ul>
+<li>rm, remove, un, uninstall</li>
+<li>will also still need the <code>--save-dev</code> flag</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>installing specific version with <code>@</code>
+<ul>
+<li><code>npm install lodash@4.7.3 --save</code></li>
+</ul>
+</li>
+<li>update to latest version
+<ul>
+<li><code>npm update lodash</code></li>
+</ul>
+</li>
+</ul>
+<h2>Semantic version</h2>
+<ul>
+<li>version 8.2.6 -&gt; version major.minor.patch
+<ul>
+<li><strong>8</strong> -&gt; major version
+<ul>
+<li>major changes</li>
+<li>breaking changes. Application will probably break. Will need to read documentation to update code</li>
+</ul>
+</li>
+<li><strong>2</strong> -&gt; minor version
+<ul>
+<li>New features</li>
+<li>Doesn’t break API</li>
+</ul>
+</li>
+<li><strong>Patch</strong> -&gt;
+<ul>
+<li>Bug fixes</li>
+</ul>
+</li>
+<li><code>^</code> -&gt; install latest minor version with npm install
+<ul>
+<li>will not install lates major version</li>
+</ul>
+</li>
+<li><code>~</code> -&gt; install the latest patch changes</li>
+<li><code>*</code> -&gt; install the absolute latest version
+<ul>
+<li>not a good idea because latest version can be breaking and app may not even run</li>
+</ul>
+</li>
+<li>Otherwise, <code>4.3.2</code> -&gt; install this exact version</li>
+<li>Local modules- just go in the node_modules folder for app</li>
+<li>Global modules
+<ul>
+<li><code>npm install -g nodemon</code></li>
+<li>install on your computer, meaning you can run it anywhere</li>
+<li>To see where global installs are -&gt; <code>npm root -g</code></li>
+<li><code>npm install live-server -g</code>
+<ul>
+<li>allows to run whatever directory on localhost and load it up in your browser</li>
+</ul>
+</li>
+<li>remove global module
+<ul>
+<li><code>npm remove nodemon -g</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>List packages
+<ul>
+<li><code>npm list</code></li>
+<li><code>--depth</code> -&gt; specify which level of dependencies to display. Top level or sub dependencies
+<ul>
+<li><code>npm list --depth 0</code>
+<ul>
+<li>1 -&gt; gulp</li>
+<li>2 -&gt; all of the modules</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Scripts</h2>
+<ul>
+<li>start -&gt; command to start your app
+<ul>
+<li><code>node index.js</code>
+<ul>
+<li>can simply run <code>npm start</code></li>
+</ul>
+</li>
+<li>unless it’s <code>start</code> or <code>test</code>, will need to use <code>npm run ...</code> to run that script
+<ul>
+<li>example: <code>”server”: “live-server”</code> -&gt; <code>npm run server</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
     </body>
     </html>

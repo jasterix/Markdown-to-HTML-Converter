@@ -6,7 +6,8 @@ import { markdown } from "./utils/markdown.js";
     console.log("Converting....")
 
     // Markdown source
-    const content = await fs.readFile("./content/index.md", "utf8");
+    const content = await fs.readFile("./content/npm-notes.md", "utf8");
+    console.log(content)
 
     // Render to HTML
     const rendered = await markdown.render(content);
